@@ -1,3 +1,4 @@
+const isObject = require('lodash/forEach')
 const isObject = require('lodash/isObject')
 const path = require('path');
 const importDir = require('directory-import');
@@ -11,4 +12,12 @@ importDir(routesDir, 'sync', (routeName, routePath, routeMethods) => {
 
     if (!isModule) return console.warn(`File ${routePath} is not a route`)
     if (!isObject(routeMethods)) return console.warn(`Expected an object in the file ${routePath}.`)
+
+    const cleanUpedPath = routeName === 'index'
+        ? routePath.slice(routesDir.length, routePath - 'index.js'.length)
+        : routePath.slice(routesDir.length, routePath - '.js'.length);
+
+    forEach(routeMethods, (methodArgs, methodName) => {
+
+    })
 });
