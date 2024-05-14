@@ -1,0 +1,42 @@
+{
+  "post": {
+    "body": {
+      "type": "object",
+      "required": [
+        "data"
+      ],
+      "properties": {
+        "data": {
+          "type": "object",
+          "required": [
+            "image"
+          ],
+          "properties": {
+            "image": {
+              "type": "object",
+              "required": [
+                "url"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "minLength": 10
+                }
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "2xx": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
